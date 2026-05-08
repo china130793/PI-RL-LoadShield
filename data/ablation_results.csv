@@ -1,0 +1,7 @@
+variant,Mtb_peak_reduction_pct,Gamma_br_reduction_pct,Tm_peak_reduction_pct,DEL_reduction_pct,N_viol,description
+Full PI-RL LoadShield,38.6,51.9,33.7,39.4,0,"Complete framework with LiDAR preview, physics penalty, safety projection, active yaw, and IBPC."
+Without LiDAR preview,26.2,39.5,24.1,28.7,1,Preview input removed; controller reacts mainly from feedback states.
+Without physics penalty,34.5,45.3,27.8,31.6,8,Reward excludes explicit physical-constraint violation penalty.
+Without safety projection,36.1,48.4,30.5,34.2,14,Raw PPO action is applied without deterministic post-policy safety projection.
+Without active yaw,31.4,46.7,25.9,32.8,2,Yaw correction channel removed; only blade-wise pitch actions are retained.
+Without IBPC,24.7,19.8,22.5,26.1,0,Independent blade pitch removed; pitch action becomes collective or near-collective.

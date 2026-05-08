@@ -1,0 +1,82 @@
+PI-RL LoadShield Synthetic Digital-Twin Dataset: Column Description
+========================================================================
+
+Dataset file: loadshield_timeseries_dataset.csv
+Rows: 7500
+Columns: 70
+
+Important note:
+This is a synthetic, downsampled, digital-twin-aligned time-series dataset prepared for open-source release with the PI-RL LoadShield paper. It does not contain field measurements from an operational offshore turbine. Values are generated to remain consistent with the paper methodology, validation scenarios, controller hierarchy, and reported metric trends.
+
+Column descriptions:
+------------------------------------------------------------------------
+episode_id: Unique episode identifier for one controller-scenario simulation trace.
+seed_id: Synthetic wind/wave/controller random seed used for repeatable generation.
+split: Dataset split label. Public sample uses test_release_sample.
+scenario_id: Scenario code S1-S6 matching the paper validation protocol.
+scenario_type: Scenario family: above-rated, transient gust, freak-wave-like event, combined gust-wave, yaw misalignment, or delay/noise/actuator limit.
+storm_severity: Discrete storm severity level: Moderate, High, Severe, or Extreme.
+controller_type: Controller applied in the trace: Collective Pitch, IBPC without Preview, MPC Load Control, Model-free DRL, or PI-RL LoadShield.
+time_s: Simulation time in seconds.
+scenario_phase: Event phase label: pre_event, preview_window, impact_peak, or recovery.
+control_timestep_s: Underlying controller decision interval used in the paper setup.
+sample_interval_s: Recorded sampling interval in this public downsampled dataset.
+communication_delay_ms: Communication delay injected in the IoT/preview-control loop.
+sensor_noise_level: Relative sensor-noise level used in synthetic preview and structural channels.
+gust_start_s: Nominal gust-front start time in the episode.
+wave_event_start_s: Nominal wave transient start time in the episode.
+yaw_error_initial_deg: Initial yaw-misalignment angle in degrees.
+mean_wind_speed_mps: Episode mean wind speed.
+wind_speed_mps: Local instantaneous wind speed at the sensing/preview side.
+rotor_arrival_wind_speed_mps: Wind speed arriving at the rotor plane after preview/advection delay.
+wind_direction_deg: Instantaneous wind direction angle.
+turbulence_intensity: Scenario turbulence intensity.
+lidar_preview_wind_speed_5s_mps: LiDAR-equivalent wind-speed preview 5 seconds ahead.
+lidar_preview_wind_speed_10s_mps: LiDAR-equivalent wind-speed preview 10 seconds ahead.
+lidar_preview_wind_speed_20s_mps: LiDAR-equivalent wind-speed preview 20 seconds ahead.
+lidar_preview_wind_speed_30s_mps: LiDAR-equivalent wind-speed preview 30 seconds ahead.
+lidar_preview_direction_30s_deg: LiDAR-equivalent wind-direction preview 30 seconds ahead.
+preview_confidence: Synthetic confidence score for preview quality after delay/noise effects.
+wave_elevation_m: Instantaneous wave elevation.
+significant_wave_height_m: Scenario significant wave height.
+wave_transient_factor: Multiplier applied to create freak-wave-like or storm-wave transient.
+platform_pitch_deg: Floating-platform pitch angle.
+platform_pitch_rate_deg_s: Floating-platform pitch rate.
+platform_surge_m: Floating-platform surge displacement.
+platform_heave_m: Floating-platform heave displacement.
+yaw_misalignment_deg: Instantaneous yaw misalignment between rotor and incoming wind.
+rotor_speed_rpm: Rotor speed.
+generator_speed_rpm: Generator speed derived from rotor speed.
+blade_pitch_1_deg: Blade 1 pitch angle.
+blade_pitch_2_deg: Blade 2 pitch angle.
+blade_pitch_3_deg: Blade 3 pitch angle.
+yaw_angle_deg: Nacelle yaw angle.
+M_tb_kNm: Tower-base bending moment in kNm.
+M_tb_norm: Tower-base bending moment normalized by episode load reference.
+M_br_1_kNm: Blade 1 root bending moment in kNm.
+M_br_2_kNm: Blade 2 root bending moment in kNm.
+M_br_3_kNm: Blade 3 root bending moment in kNm.
+M_br_mean_kNm: Mean blade-root bending moment over three blades.
+Gamma_br_kNm: Blade-wise imbalance metric: mean absolute deviation from blade-root mean.
+T_m_kN: Representative mooring-line tension in kN.
+T_m_safe_kN: Safe mooring-tension threshold used for safety projection.
+a_n_mps2: Nacelle acceleration in m/s^2.
+generated_power_MW: Generated power in MW.
+rated_power_MW: Rated turbine power in MW.
+e_P: Normalized power error (generated_power - rated_power) / rated_power.
+delta_beta_1_deg: Incremental pitch command for blade 1.
+delta_beta_2_deg: Incremental pitch command for blade 2.
+delta_beta_3_deg: Incremental pitch command for blade 3.
+delta_yaw_deg: Incremental yaw command.
+pitch_rate_1_deg_s: Approximate pitch-rate command for blade 1.
+pitch_rate_2_deg_s: Approximate pitch-rate command for blade 2.
+pitch_rate_3_deg_s: Approximate pitch-rate command for blade 3.
+yaw_rate_deg_s: Approximate yaw-rate command.
+mooring_safety_margin: Normalized mooring safety margin, defined as 1 - T_m/T_m_safe.
+raw_action_violation: Binary flag indicating whether the raw controller action violated pitch/yaw/rate/mooring limits.
+applied_action_violation: Binary flag indicating whether the final applied action violated safety limits.
+safety_projection_active: Binary flag indicating whether PI-RL LoadShield safety projection was activated.
+N_viol_pre_cumulative: Cumulative raw/pre-projection violation count within the episode.
+N_viol_applied_cumulative: Cumulative final/applied violation count within the episode.
+DEL_proxy_increment: Synthetic per-sample fatigue proxy increment used to reconstruct episode-level fatigue trends.
+load_reduction_reference: Episode-specific structural load reference used for normalization.
