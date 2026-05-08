@@ -1,6 +1,6 @@
-# PI-RL LoadShield: Reproducibility Package for Storm-Time Load Mitigation in Floating Offshore Wind Turbines
+# PI-RL LoadShield: Storm-Time Load Mitigation in Floating Offshore Wind Turbines
 
-This repository contains the dataset files, Python reproduction code, generated figures, and code-output snapshots for the study:
+This repository contains the dataset files, Python code, generated figures, and code-output snapshots for the study:
 
 **PI-RL LoadShield: Physics-Integrated Reinforcement Learning for Storm-Time Load Mitigation in Floating Offshore Wind Turbines**
 
@@ -23,7 +23,7 @@ Floating offshore wind turbines can harvest strong deep-sea winds, but their flo
 - deterministic safety projection,
 - digital-twin-based validation.
 
-The released files allow readers to inspect the input datasets, run the reproduction script, generate tables and figures, and compare the outputs with the values reported in the manuscript.
+The released files allow readers to inspect the input datasets, run the script, generate tables and figures, and compare the outputs with the values reported in the manuscript.
 
 ---
 
